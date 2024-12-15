@@ -1,6 +1,21 @@
+import { IoMdAdd } from "react-icons/io";
 import { NavMobile } from "../components";
+import { createDb } from "../../indexeddb/database";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
+  const navigate = useNavigate();
+
+  //TODO: create the database just once
+  useEffect(() => {
+    createDb();
+  }, []);
+
+  const onAddClick = () => {
+    navigate("add-expense");
+  };
+
   return (
     <div className="container">
       <div className="header">
@@ -26,8 +41,8 @@ export const MainPage = () => {
       <div className="list-of-expenses">
         <div className="expense">
           <span className="icon">🍔</span>
-          <p className="expense-title">Burger king</p>
-          <span className="expense-cost">32.67</span>
+          <p className="expense-title">Hola dieguito</p>
+          <span className="expense-cost">89.78</span>
         </div>
         <div className="expense">
           <span className="icon">🍔</span>
@@ -42,7 +57,9 @@ export const MainPage = () => {
       </div>
 
       <div className="toolbar">
-        <button className="add-button">Add</button>
+        <button className="add-button" onClick={onAddClick}>
+          <IoMdAdd />
+        </button>
       </div>
     </div>
   );
