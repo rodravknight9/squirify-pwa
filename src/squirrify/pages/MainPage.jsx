@@ -1,9 +1,13 @@
-import React from "react";
+import { NavMobile } from "../components";
 
 export const MainPage = () => {
   return (
     <div className="container">
       <div className="header">
+        <div className="nav-menu">
+          <NavMobile />
+        </div>
+
         <div className="total">
           <span className="number">12738</span>
           <span className="currency">Bs</span>
