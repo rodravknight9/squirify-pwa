@@ -1,15 +1,22 @@
 import { IoMdAdd } from "react-icons/io";
 import { NavMobile } from "../components";
-import { createDb } from "../../indexeddb/database";
-import { useEffect } from "react";
+import { getExpenses2 } from "../../indexeddb/database";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
+  const [expenses, setExpenses] = useState([]);
   const navigate = useNavigate();
 
-  //TODO: create the database just once
   useEffect(() => {
-    createDb();
+    const initialize = async () => {
+      const exp = await getExpenses2();
+      setExpenses(exp);
+    };
+
+    console.log(expenses);
+
+    initialize();
   }, []);
 
   const onAddClick = () => {
@@ -39,21 +46,13 @@ export const MainPage = () => {
       </div>
 
       <div className="list-of-expenses">
-        <div className="expense">
-          <span className="icon">🍔</span>
-          <p className="expense-title">Hola dieguito</p>
-          <span className="expense-cost">89.78</span>
-        </div>
-        <div className="expense">
-          <span className="icon">🍔</span>
-          <p className="expense-title">Burger king</p>
-          <span className="expense-cost">32.67</span>
-        </div>
-        <div className="expense">
-          <span className="icon">🍔</span>
-          <p className="expense-title">Burger king</p>
-          <span className="expense-cost">32.67</span>
-        </div>
+        {expenses.map((exp, i) => (
+          <div className="expense" key={i}>
+            <span className="icon">🍔</span>
+            <p className="expense-title">{exp.title}</p>
+            <span className="expense-cost">{exp.cost}</span>
+          </div>
+        ))}
       </div>
 
       <div className="toolbar">

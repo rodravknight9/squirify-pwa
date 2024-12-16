@@ -1,16 +1,13 @@
-export let database = null;
-
 export const createDb = () => {
   const db = window.indexedDB.open("squirify", 1);
 
-  db.onerror = () => {
-    console.log("Error");
-  };
+  // db.onerror = () => {
+  //   console.log("Error");
+  // };
 
-  db.onerror = () => {
-    console.log("db created");
-    database = db.result;
-  };
+  // db.onsuccess = () => {
+  //   console.log("db created");
+  // };
 
   db.onupgradeneeded = (e) => {
     const db = e.target.result;
@@ -25,4 +22,56 @@ export const createDb = () => {
     expensesTable.createIndex("date", "date", { unique: false });
     expensesTable.createIndex("description", "description", { unique: false });
   };
+};
+
+export const addExpense = (expense) => {
+  const request = window.indexedDB.open("squirify", 1);
+  request.onsuccess = (e) => {
+    var db = e.target.result;
+    const transaction = db.transaction(["expenses"], "readwrite");
+    const objectStore = transaction.objectStore("expenses");
+    objectStore.add(expense);
+  };
+};
+
+export const getExpenses = () => {
+  const request = window.indexedDB.open("squirify", 1);
+  let items;
+  request.onsuccess = async (e) => {
+    var db = e.target.result;
+    const transaction = db.transaction(["expenses"], "readwrite");
+    const objectStore = transaction.objectStore("expenses");
+    const objectStoreRequest = objectStore.getAll();
+    objectStoreRequest.onsuccess = () => {
+      console.log(objectStoreRequest.result);
+      items = objectStoreRequest.result;
+    };
+  };
+  return items;
+};
+
+export const getExpenses2 = () => {
+  return new Promise((resolve, reject) => {
+    const request = window.indexedDB.open("squirify", 1);
+
+    request.onsuccess = (e) => {
+      const db = e.target.result;
+      const transaction = db.transaction(["expenses"], "readonly"); // readonly es suficiente si solo lees
+      const objectStore = transaction.objectStore("expenses");
+      const objectStoreRequest = objectStore.getAll();
+
+      objectStoreRequest.onsuccess = () => {
+        console.log(objectStoreRequest.result); // Verifica los datos aquí
+        resolve(objectStoreRequest.result); // Resuelve la promesa con los datos obtenidos
+      };
+
+      objectStoreRequest.onerror = () => {
+        reject(objectStoreRequest.error); // Rechaza la promesa si hay un error
+      };
+    };
+
+    request.onerror = () => {
+      reject(request.error); // Rechaza la promesa si no se pudo abrir la base de datos
+    };
+  });
 };
