@@ -34,22 +34,6 @@ export const addExpense = (expense) => {
   };
 };
 
-export const getExpenses = () => {
-  const request = window.indexedDB.open("squirify", 1);
-  let items;
-  request.onsuccess = async (e) => {
-    var db = e.target.result;
-    const transaction = db.transaction(["expenses"], "readwrite");
-    const objectStore = transaction.objectStore("expenses");
-    const objectStoreRequest = objectStore.getAll();
-    objectStoreRequest.onsuccess = () => {
-      console.log(objectStoreRequest.result);
-      items = objectStoreRequest.result;
-    };
-  };
-  return items;
-};
-
 export const getExpenses2 = () => {
   return new Promise((resolve, reject) => {
     const request = window.indexedDB.open("squirify", 1);
@@ -61,7 +45,6 @@ export const getExpenses2 = () => {
       const objectStoreRequest = objectStore.getAll();
 
       objectStoreRequest.onsuccess = () => {
-        console.log(objectStoreRequest.result); // Verifica los datos aquí
         resolve(objectStoreRequest.result); // Resuelve la promesa con los datos obtenidos
       };
 

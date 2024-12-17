@@ -1,6 +1,6 @@
 import { IoMdAdd } from "react-icons/io";
 import { NavMobile } from "../components";
-import { getExpenses2 } from "../../indexeddb/database";
+import { createDb, getExpenses2 } from "../../indexeddb/database";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,12 +9,12 @@ export const MainPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    createDb();
+
     const initialize = async () => {
       const exp = await getExpenses2();
       setExpenses(exp);
     };
-
-    console.log(expenses);
 
     initialize();
   }, []);

@@ -23,7 +23,6 @@ export const AddExpense = () => {
   const onSaveClick = (e) => {
     e.preventDefault();
     navigate("/");
-    console.log(formValues);
     addExpense(formValues);
   };
 
