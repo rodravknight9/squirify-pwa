@@ -12,7 +12,12 @@ export const NavMobile = () => {
 
   return (
     <div ref={ref} className="lg:hidden">
-      <Hamburger toggled={isOpen} size={20} toggle={setOpen} />
+      <Hamburger 
+        toggled={isOpen} 
+        size={20} 
+        toggle={setOpen} 
+        color="black"
+      />
       <AnimatePresence>
         {isOpen && (
           <motion.div

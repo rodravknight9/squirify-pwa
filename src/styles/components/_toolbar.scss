@@ -1,0 +1,32 @@
+.toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .buttons {
+        width: 85%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 30px;
+
+        button {
+            border: none;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            font-size: 2rem;
+        }
+
+        .btn-opt{
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .add-button {
+            background-color: $tone;
+           
+        }
+    }
+
+}

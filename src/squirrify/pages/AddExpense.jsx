@@ -22,8 +22,8 @@ export const AddExpense = () => {
 
   const onSaveClick = (e) => {
     e.preventDefault();
-    navigate("/");
     addExpense(formValues);
+    navigate("/");
   };
 
   return (

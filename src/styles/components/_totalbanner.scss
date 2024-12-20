@@ -1,0 +1,13 @@
+.total-banner {
+    background-color: $tone;
+    width: 75%;
+    display: grid;
+
+    padding: 10px 20px;
+    border-radius: 7px;
+
+    span {
+        margin-right: 5px;
+        font-size: 1.7rem;
+    }
+}

@@ -1,0 +1,40 @@
+
+.hamburguer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 1.25rem;
+    padding-top: 0;
+    background-color: $primary; 
+}
+
+.hamburguer-opt {
+    display: grid;  
+}
+
+.hamburguer-opt-item {
+    width: 100%; 
+    border-radius: 0.75rem;
+    list-style: none;
+}
+
+.hamburguer-opt-item a {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    width: 85%; 
+    padding: 1.25rem;
+    background-color:  $primary;
+    text-decoration: none;
+}
+
+.hamburguer-opt-item a span {
+    display: flex; 
+    font-size: 1.125rem; 
+}
+
+.hamburguer-opt-item a .icon {
+    font-size: 1.25rem; 
+    line-height: 1.75rem; 
+    
+}

@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './styles.css'
+import './styles/styles.scss'
 import { Squirrify } from './Squirrify.jsx'
 import { BrowserRouter } from 'react-router-dom'
 

@@ -1,0 +1,35 @@
+.list{
+  display: flex;
+  justify-content: center;
+  height: 60%;
+  margin-bottom: 20px;
+  
+  .expenses {
+    background-color: $secondary;
+    width: 85%;
+    border-radius: 10px;
+    padding: 4px;
+    display: grid;
+    overflow-y: scroll;
+
+    .expense {
+      display: grid;
+      grid-template-columns: 15% 60% 25%;
+      align-items: center;
+      border-bottom: 1px solid rgb(133, 133, 133);
+
+      span, p {
+        color: black;
+      }
+
+      .expense-cost{
+        color: $tone;
+      }
+    }
+  }
+}
+
+.expenses .expense .icon {
+  padding: 15px;
+}
+  
