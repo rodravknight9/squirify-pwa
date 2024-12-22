@@ -1,11 +1,39 @@
 .nav-header {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+
+    .content {
+        height: 100%;
+        justify-content: space-between;
+        width: 90%;
+        padding: 7px 0;
+    }
 
     h2 {
         font-size: 1.3rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         color: black;
+    }
+}
+
+.back{
+    background-color: white;
+    .content-back{
+        height: 100%;
+        width: 90%;
+        padding: 7px 0;
+        display: flex;
+        color: $tone;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        h2 {
+            color: $tone;
+        }
+        .icon{
+            fill: $tone;   
+            margin-right: 5px;         
+        }
     }
 }

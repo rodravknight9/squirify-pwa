@@ -6,10 +6,12 @@
   
   .expenses {
     background-color: $secondary;
+    box-shadow: $shadow;
     width: 85%;
     border-radius: 10px;
     padding: 4px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     overflow-y: scroll;
 
     .expense {

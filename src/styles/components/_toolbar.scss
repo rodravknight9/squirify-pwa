@@ -1,22 +1,24 @@
 .toolbar {
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
 
     .buttons {
-        width: 85%;
+        width: 80%;
         display: grid;
         grid-template-columns: auto auto auto auto;
-        gap: 30px;
+        gap: 10%;
 
         button {
             border: none;
-            padding: 15px;
+            padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 15px;
+            border-radius: 8px;
             font-size: 2rem;
+            box-shadow: $shadow;
         }
 
         .btn-opt{

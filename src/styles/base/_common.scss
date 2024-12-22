@@ -1,0 +1,11 @@
+.box {
+    background-color: $secondary;
+    border-radius: 10px;
+    width: 85%;
+    height: fit-content;
+    box-shadow: $shadow;
+}
+
+.half-width {
+    width: 50%;
+}

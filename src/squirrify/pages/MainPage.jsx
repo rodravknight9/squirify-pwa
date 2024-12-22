@@ -1,9 +1,6 @@
-import { IoMdAdd } from "react-icons/io";
 import { createDb, getExpenses2 } from "../../indexeddb/database";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { calculateTotal, getCaption } from "../services";
-import { captions } from "../../common/captions";
+import { calculateTotal } from "../services";
 import { Header } from "../components/Header";
 import { TotalBanner } from "../components/TotalBanner";
 import { Filter } from "../components/Filter";
@@ -29,20 +26,17 @@ export const MainPage = () => {
   }, [total]);
 
   return (
-    <div className="container">
-
-      <Header />
-
-      <div className="header">
-        <TotalBanner total={ total }/>
-        <Filter />
+    <>
+      <div className="container">
+        <Header />
+        <div className="header">
+          <TotalBanner total={ total }/>
+          <Filter />
+        </div>
+        <ExpensesList expenses={ expenses } />
+        <Toolbar />
       </div>
-
-      <ExpensesList expenses={ expenses } />
-
-      <Toolbar />
-      
-    </div>
+    </>
   );
 };
 
