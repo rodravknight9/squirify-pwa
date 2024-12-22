@@ -5,3 +5,6 @@ export * from './Filter';
 export * from './BackHeader';
 export * from './Emoji';
 export * from './EmojiPicker';
+export * from './Category';
+export * from './UserCategories';
+export * from './Title';

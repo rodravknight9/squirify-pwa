@@ -6,6 +6,7 @@ import { TotalBanner } from "../components/TotalBanner";
 import { Filter } from "../components/Filter";
 import { ExpensesList } from "../components/ExpensesList";
 import { Toolbar } from "../components/toolbar";
+import { useNavigate } from "react-router-dom";
 
 export const MainPage = () => {
   const [expenses, setExpenses] = useState([]);

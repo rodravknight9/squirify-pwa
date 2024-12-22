@@ -1,9 +1,8 @@
 import React from 'react'
 import { IoMdArrowRoundBack } from 'react-icons/io'
-import { TiArrowLeftThick } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom';
 
-export const BackHeader = () => {
+export const BackHeader = ({ title }) => {
 
     const navigate = useNavigate();
 
@@ -11,7 +10,7 @@ export const BackHeader = () => {
         <div className='nav-header back'>
             <div className="content-back">
                 <IoMdArrowRoundBack className='icon' size={30} onClick={() => navigate(-1)}/>
-                <h2>Title here</h2>
+                <h2>{title}</h2>
             </div>
         </div>
     )

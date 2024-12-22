@@ -1,0 +1,12 @@
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    span {
+        color: $tone;
+        font-weight: bolder;
+        overflow-y: hidden;
+    }
+}
