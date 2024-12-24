@@ -1,8 +1,6 @@
-import React from "react";
 import { IoIosMore } from "react-icons/io";
 import { getCaption } from "../services";
 import { captions } from "../../common";
-import { IoAdd } from "react-icons/io5";
 
 export const AddButton = () => {
   return (
