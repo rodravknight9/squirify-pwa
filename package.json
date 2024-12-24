@@ -1,6 +1,6 @@
 {
   "name": "squirify-pwa",
-  "private": true,
+  "private": false,
   "homepage": "https://rodravknight9.github.io/squirify-pwa",
   "version": "0.0.0",
   "type": "module",
