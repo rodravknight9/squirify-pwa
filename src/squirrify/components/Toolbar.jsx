@@ -5,7 +5,7 @@ export const Toolbar = () => {
   const navigate = useNavigate();
 
   const onAddClick = () => {
-    navigate("add-expense");
+    navigate("./add-expense");
   };
 
   return (
