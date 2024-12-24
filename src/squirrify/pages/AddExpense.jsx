@@ -2,37 +2,45 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks";
 import { getTodayDate } from "../../helpers";
 import { addExpense } from "../../indexeddb/database";
-import { BackHeader, EmojiPicker, Header, Title } from "../components";
+import { BackHeader, EmojiPicker, Title } from "../components";
 import { titles } from "../../common";
 import { getCaption } from "../services";
+import { useState } from "react";
 
 export const AddExpense = () => {
   const navigate = useNavigate();
+  const [category, setCategory] = useState("");
+
+  const handleCategoryChange = (value) => {
+    setCategory(value);
+  };
 
   const [formValues, handleInputChange] = useForm({
-    title: "",
     description: "",
-    cost: '',
+    cost: "",
     date: getTodayDate(),
+    categoryUuid: category,
   });
 
   const { description, cost, date } = formValues;
 
   const onSaveClick = (e) => {
     e.preventDefault();
+    //TODO: improve this, should be autoamtic
+    formValues.categoryUuid = category;
     addExpense(formValues);
     navigate("/");
   };
 
   return (
     <div className="container">
-      <BackHeader title={getCaption(titles.editExpense)}/>
+      <BackHeader title={getCaption(titles.editExpense)} />
       <div className="edit-expense">
         <div className="box form-container">
-          <Title title={'Add Expenses'}/>
+          <Title title={"Add Expenses"} />
           <form>
             <div className="input-box">
-              <input              
+              <input
                 className="half-width"
                 type="number"
                 name="cost"
@@ -42,8 +50,12 @@ export const AddExpense = () => {
                 placeholder="total"
               />
             </div>
+            {/* <p style={{ color: "black" }}>{category}</p> */}
             <div className="input-box">
-              <EmojiPicker />
+              <EmojiPicker
+                onCategoryChange={handleCategoryChange}
+                selectedCategory={category}
+              />
             </div>
             <div className="input-box half-width">
               <input
@@ -72,7 +84,6 @@ export const AddExpense = () => {
           </form>
         </div>
       </div>
-      
     </div>
   );
 };

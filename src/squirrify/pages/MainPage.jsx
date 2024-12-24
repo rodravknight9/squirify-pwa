@@ -5,8 +5,7 @@ import { Header } from "../components/Header";
 import { TotalBanner } from "../components/TotalBanner";
 import { Filter } from "../components/Filter";
 import { ExpensesList } from "../components/ExpensesList";
-import { Toolbar } from "../components/toolbar";
-import { useNavigate } from "react-router-dom";
+import { Toolbar } from "../components/Toolbar";
 
 export const MainPage = () => {
   const [expenses, setExpenses] = useState([]);
@@ -31,14 +30,12 @@ export const MainPage = () => {
       <div className="container">
         <Header />
         <div className="header">
-          <TotalBanner total={ total }/>
+          <TotalBanner total={total} />
           <Filter />
         </div>
-        <ExpensesList expenses={ expenses } />
+        <ExpensesList expenses={expenses} />
         <Toolbar />
       </div>
     </>
   );
 };
-
-// https://www.freecodecamp.org/news/how-to-create-an-animated-hamburger-menu-in-react/

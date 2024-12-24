@@ -1,26 +1,31 @@
-import React from 'react'
-import { Emoji } from './Emoji'
-import { Category } from './Category'
+import { Category } from "./Category";
+import { MoreButton } from "./MoreButton";
+import { defaultCategoriesArray } from "../../helpers/defaultCategories";
 
-export const EmojiPicker = () => {
-    
-    return (
-        <div className='emoji-picker'>
-            <div className="emoji-option selected">
-               <Category emojiName={'hamburger'} size={40} categoryName='Changes'/>
-            </div>
-            <div className="emoji-option">
-                <Emoji emojiName={'hamburger'} size={40}/>
-                <span>Meals</span>
-            </div>
-            <div className="emoji-option">
-                <Emoji emojiName={'hamburger'} size={40}/>
-                <span>Meals</span>
-            </div>
-            <div className="emoji-option">
-                <Emoji emojiName={'hamburger'} size={40}/>
-                <span>Meals</span>
-            </div>
+export const EmojiPicker = ({ onCategoryChange, selectedCategory }) => {
+  //TODO improve the selection based by the user preferences
+  const defCategories = defaultCategoriesArray.slice(0, 3);
+
+  const onClickCategory = (value) => {
+    onCategoryChange(value);
+  };
+
+  return (
+    <div className="emoji-picker">
+      {defCategories.map((cat, i) => (
+        <div
+          key={i}
+          className={`emoji-option ${
+            cat.uuid === selectedCategory ? "selected" : ""
+          }`}
+          onClick={() => onClickCategory(cat.uuid)}
+        >
+          <Category emojiName={cat.emoji} size={40} categoryName={cat.name} />
         </div>
-    )
-}
+      ))}
+      <div className="emoji-option">
+        <MoreButton />
+      </div>
+    </div>
+  );
+};

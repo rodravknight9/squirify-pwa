@@ -1,28 +1,25 @@
-
-@import './base/base';
-@import './base/settings';
-@import './base/common';
+@import "./base/base";
+@import "./base/settings";
+@import "./base/common";
+@import "./base/buttons";
 
 // components
-@import './components/hamburguer';
-@import './components/navheader';
-@import './components/totalbanner';
-@import './components/filter';
-@import './components/expenseslist';
-@import './components/toolbar';
-@import './components/form';
-@import './components/emoji';
-@import './components/category';
-@import './components/categorylist';
+@import "./components/hamburguer";
+@import "./components/navheader";
+@import "./components/totalbanner";
+@import "./components/filter";
+@import "./components/expenseslist";
+@import "./components/toolbar";
+@import "./components/form";
+@import "./components/emoji";
+@import "./components/category";
+@import "./components/categorylist";
 
-// screen 
-@import './screens/mainpage';
-
-
+// screen
+@import "./screens/mainpage";
 
 /* hamburguer */
 
 /* hamburguer END*/
 
 /* Add expense from  */
-

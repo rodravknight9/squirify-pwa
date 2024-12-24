@@ -1,9 +1,9 @@
-.list{
+.list {
   display: flex;
   justify-content: center;
   height: 60%;
   margin-bottom: 20px;
-  
+
   .expenses {
     background-color: $secondary;
     box-shadow: $shadow;
@@ -16,15 +16,29 @@
 
     .expense {
       display: grid;
-      grid-template-columns: 15% 60% 25%;
+      grid-template-columns: 20% 55% 25%;
       align-items: center;
       border-bottom: 1px solid rgb(133, 133, 133);
 
-      span, p {
+      .desc-date {
+        display: flex;
+        flex-direction: column;
+        span {
+          padding: 0;
+        }
+
+        .date {
+          color: gray;
+          font-size: small;
+        }
+      }
+
+      span,
+      p {
         color: black;
       }
 
-      .expense-cost{
+      .expense-cost {
         color: $tone;
       }
     }
@@ -34,4 +48,3 @@
 .expenses .expense .icon {
   padding: 15px;
 }
-  
