@@ -1,5 +1,3 @@
-import React from "react";
-import { IoMdAdd } from "react-icons/io";
 import { defaultCategoriesArray } from "../../helpers/defaultCategories";
 import { Emoji } from "./Emoji";
 
@@ -9,8 +7,6 @@ export const ExpensesList = ({ expenses }) => {
   const getCategory = (categoryUuid) => {
     return localCategories.find((obj) => obj.uuid === categoryUuid);
   };
-
-  const getEmoji = () => {};
 
   return (
     <div className="list">
