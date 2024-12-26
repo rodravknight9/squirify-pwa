@@ -1,8 +1,0 @@
-{
-  "short_name": "Squirify",
-  "name": "Squirify",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "rgb(66, 129, 66)",
-  "background_color": "white"
-}
