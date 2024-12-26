@@ -65,3 +65,74 @@ export const getExpenses2 = () => {
     };
   });
 };
+
+export const getByDate = (option) => {
+  return new Promise((resolve, reject) => {
+    const now = new Date();
+    let startDate, endDate;
+    const formatDate = (date) => date.toISOString().split("T")[0];
+
+    switch (option) {
+      case "today":
+        startDate = formatDate(
+          new Date(now.getFullYear(), now.getMonth(), now.getDate())
+        );
+        endDate = formatDate(
+          new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+        );
+        break;
+
+      case "month":
+        startDate = formatDate(new Date(now.getFullYear(), now.getMonth(), 1));
+        endDate = formatDate(
+          new Date(now.getFullYear(), now.getMonth() + 1, 1)
+        );
+        break;
+
+      case "thisYear":
+        startDate = formatDate(new Date(now.getFullYear(), 0, 1));
+        endDate = formatDate(new Date(now.getFullYear() + 1, 0, 1));
+        break;
+
+      default:
+        reject(
+          new Error("Invalid option. Use 'today', 'month', or 'thisYear'.")
+        );
+        return;
+    }
+
+    console.log("Start Date:", startDate);
+    console.log("End Date:", endDate);
+
+    const request = window.indexedDB.open("squirify", 1);
+
+    request.onsuccess = (e) => {
+      const db = e.target.result;
+      const transaction = db.transaction("expenses", "readonly");
+      const objectStore = transaction.objectStore("expenses");
+      const index = objectStore.index("date");
+
+      const keyRange = IDBKeyRange.bound(startDate, endDate, false, true);
+      const cursorRequest = index.openCursor(keyRange);
+
+      const results = [];
+      cursorRequest.onsuccess = () => {
+        const cursor = cursorRequest.result;
+        if (cursor) {
+          results.push(cursor.value);
+          cursor.continue();
+        } else {
+          resolve(results);
+        }
+      };
+
+      cursorRequest.onerror = (event) => {
+        reject(event.target.error);
+      };
+    };
+
+    request.onerror = () => {
+      reject(request.error);
+    };
+  });
+};

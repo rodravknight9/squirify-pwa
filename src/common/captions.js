@@ -29,4 +29,10 @@ export const captions = {
     ru: "_",
     it: "molto",
   },
+  other: {
+    en: "other",
+    es: "otro",
+    ru: "_",
+    it: "altro",
+  },
 };

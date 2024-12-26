@@ -15,7 +15,7 @@ export const ExpensesList = ({ expenses }) => {
           <div className="expense" key={i}>
             <div style={{ padding: "2px 8px" }}>
               <Emoji
-                emojiName={getCategory(exp.categoryUuid).emoji}
+                emojiName={getCategory(exp.categoryUuid)?.emoji ?? ""}
                 size={30}
               />
             </div>

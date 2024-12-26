@@ -1,21 +1,30 @@
 .filter {
-    background-color: $secondary;
-    border-radius: 10px;
-    width: 85%;
-    height: fit-content;
-    box-shadow: $shadow;
-    .options{
-        display: flex;
-        justify-content: space-around;
-        span {
-            height: 100%;
-            width: 25%;
-            color: black;
-            padding: 3px 0;
-            text-align: center;
-            &:first-child, &:last-child {
-                border-radius: 10px 0 0 10px;
-            }
-        }
+  background-color: $secondary;
+  border-radius: 10px;
+  width: 85%;
+  height: fit-content;
+  box-shadow: $shadow;
+  .options {
+    display: flex;
+    justify-content: space-around;
+    span {
+      height: 100%;
+      width: 25%;
+      color: black;
+      padding: 3px 0;
+      text-align: center;
+      &:first-child {
+        border-radius: 10px 0 0 10px;
+      }
+      &:last-child {
+        border-radius: 0 10px 10px 0;
+      }
     }
+
+    .selected {
+      background-color: $tone;
+      color: white;
+      font-weight: bold;
+    }
+  }
 }
