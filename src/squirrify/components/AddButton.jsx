@@ -4,9 +4,9 @@ import { captions } from "../../common";
 
 export const AddButton = () => {
   return (
-    <div className="more-btn" style={{ backgroundColor: "red" }}>
+    <div className="more-btn">
       <IoIosMore className="icon" size={60} />
-      <span>{getCaption(captions.more)}</span>
+      <span style={{ color: "black" }}>{getCaption(captions.more)}</span>
     </div>
   );
 };
