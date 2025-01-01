@@ -12,25 +12,30 @@ export const MainPage = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    createDb();
-
     const initialize = async () => {
-      const exp = await getExpenses2();
-      setExpenses(exp);
+      try {
+        await createDb();
 
-      const tol = await calculateTotal(exp);
-      setTotal(tol);
+        const expensesPromise = getExpenses2();
+        const expenses = await expensesPromise;
+        setExpenses(expenses);
+
+        const total = await calculateTotal(expenses); // Assume calculateTotal is synchronous
+        setTotal(total);
+      } catch (error) {
+        console.error("Error initializing data:", error);
+      }
     };
 
     initialize();
-  }, [total]);
+  }, []);
 
   return (
     <>
       <div className="container">
         <Header />
         <div className="header">
-          <TotalBanner total={total} />
+          <TotalBanner />
           <Filter />
         </div>
         <ExpensesList expenses={expenses} />

@@ -1,34 +1,48 @@
 import { defaultCategoriesArray } from "../helpers/defaultCategories";
 
 export const createDb = () => {
-  const db = window.indexedDB.open("squirify", 1);
+  return new Promise((resolve, reject) => {
+    const dbRequest = window.indexedDB.open("squirify", 1);
 
-  db.onupgradeneeded = (e) => {
-    const db = e.target.result;
+    dbRequest.onupgradeneeded = (e) => {
+      const db = e.target.result;
 
-    const expensesTable = db.createObjectStore("expenses", {
-      keyPath: "id",
-      autoIncrement: true,
-    });
+      const expensesTable = db.createObjectStore("expenses", {
+        keyPath: "id",
+        autoIncrement: true,
+      });
+      expensesTable.createIndex("cost", "cost", { unique: false });
+      expensesTable.createIndex("date", "date", { unique: false });
+      expensesTable.createIndex("description", "description", {
+        unique: false,
+      });
+      expensesTable.createIndex("categoryUuid", "categoryUuid", {
+        unique: false,
+      });
 
-    expensesTable.createIndex("cost", "cost", { unique: false });
-    expensesTable.createIndex("date", "date", { unique: false });
-    expensesTable.createIndex("description", "description", { unique: false });
-    expensesTable.createIndex("categoryUuid", "categoryUuid", {
-      unique: false,
-    });
+      const categoryTable = db.createObjectStore("categories", {
+        keyPath: "uuid",
+      });
+      categoryTable.createIndex("name", "name", { unique: false });
+      categoryTable.createIndex("emoji", "emoji", { unique: false });
 
-    const categoryTable = db.createObjectStore("categories", {
-      keyPath: "uuid",
-    });
-    categoryTable.createIndex("name", "name", { unique: false });
-    categoryTable.createIndex("emoji", "emoji", { unique: false });
+      const transaction = e.target.transaction;
+      const categoryStore = transaction.objectStore("categories");
 
-    // Insert default data into "categories"
-    defaultCategoriesArray.forEach((element) => {
-      categoryTable.add(element);
-    });
-  };
+      defaultCategoriesArray.forEach((element) => {
+        categoryStore.add(element);
+      });
+    };
+
+    dbRequest.onsuccess = (e) => {
+      resolve(e.target.result);
+    };
+
+    dbRequest.onerror = (e) => {
+      console.error("Database error:", e.target.errorCode);
+      reject(e.target.errorCode);
+    };
+  });
 };
 
 export const addExpense = (expense) => {
@@ -100,9 +114,6 @@ export const getByDate = (option) => {
         );
         return;
     }
-
-    console.log("Start Date:", startDate);
-    console.log("End Date:", endDate);
 
     const request = window.indexedDB.open("squirify", 1);
 

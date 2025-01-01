@@ -3,20 +3,22 @@ import { calculateTotal, getCaption } from "../services";
 import { captions } from "../../common/captions";
 import { getByDate } from "../../indexeddb/database";
 
-export const TotalBanner = ({ total }) => {
+export const TotalBanner = () => {
   const [expenses, setExpenses] = useState(0);
-  const [total2, setTotal] = useState(30);
+  const [total2, setTotal] = useState(0);
 
   useEffect(() => {
+    //TODO: Better to use Redux here
     const initialize = async () => {
-      const exp = await getByDate("today");
-      setExpenses(exp);
+      setTimeout(async () => {
+        const exp = await getByDate("today");
+        setExpenses(exp);
 
-      const tol = await calculateTotal(exp);
-      setTotal(tol);
+        const tol = await calculateTotal(exp);
+        setTotal(tol);
+      }, "2000");
     };
 
-    console.log(total2);
     initialize();
   }, [total2]);
 
