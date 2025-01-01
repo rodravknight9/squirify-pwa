@@ -1,8 +1,22 @@
 {
-  "short_name": "Squirify",
   "name": "Squirify",
-  "start_url": ".",
-  "display": "standalone",
+  "short_name": "Squirify",
+  "dir": "ltr",
+  "lang": "en-US",
+  "orientation": "any",
+  "start_url": "/index.html",
+  "background_color": "rgb(66, 129, 66)",
   "theme_color": "rgb(66, 129, 66)",
-  "background_color": "white"
+  "display": "standalone",
+  "description": "A highly scalable & plug-able, Progressive Web Application foundation with the best Developer Experience.",
+  "icons": [
+    {
+      "src": "/src/assets/squirrel.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/assets/squirrel.png",
+      "sizes": "512x512"
+    }
+  ]
 }
