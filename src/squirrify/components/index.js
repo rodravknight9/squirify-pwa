@@ -10,3 +10,4 @@ export * from "./UserCategories";
 export * from "./Title";
 export * from "./MoreButton";
 export * from "./AddButton";
+export * from "./PickCategory";

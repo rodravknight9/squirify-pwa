@@ -2,6 +2,7 @@ import { defaultCategoriesArray } from "../../helpers/defaultCategories";
 import { Emoji } from "./Emoji";
 
 export const ExpensesList = ({ expenses }) => {
+  //TODO: better to use Redux
   const localCategories = defaultCategoriesArray;
 
   const getCategory = (categoryUuid) => {

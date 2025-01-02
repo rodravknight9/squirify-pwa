@@ -1,6 +1,22 @@
 import { Category } from "./Category";
 import { MoreButton } from "./MoreButton";
 import { defaultCategoriesArray } from "../../helpers/defaultCategories";
+import Modal from "react-modal";
+import { useState } from "react";
+import { PickCategory } from "./PickCategory";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    width: "60vw",
+    height: "fit-content",
+  },
+};
 
 export const EmojiPicker = ({ onCategoryChange, selectedCategory }) => {
   //TODO improve the selection based by the user preferences
@@ -9,6 +25,16 @@ export const EmojiPicker = ({ onCategoryChange, selectedCategory }) => {
   const onClickCategory = (value) => {
     onCategoryChange(value);
   };
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div className="emoji-picker">
@@ -23,9 +49,18 @@ export const EmojiPicker = ({ onCategoryChange, selectedCategory }) => {
           <Category emojiName={cat.emoji} size={40} categoryName={cat.name} />
         </div>
       ))}
-      <div className="emoji-option">
+      <div className="emoji-option" onClick={openModal}>
         <MoreButton />
       </div>
+      <Modal
+        // id="modal"
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <PickCategory />
+      </Modal>
     </div>
   );
 };
