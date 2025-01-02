@@ -1,8 +1,20 @@
-# React + Vite
+# Squirify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Squirify is an open source PWA application to track and register expenses
 
-Currently, two official plugins are available:
+## how to debug
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run the application in developer mode:
+
+`npm run dev`
+
+### Debug from the mobile device
+
+We are able to debug the application from the mobile device by following the next steps:
+
+1. Run the application in dev mode
+2. Connect the device via USB to the computer
+3. Go to `chrome://inspect/#devices` url from Chrome
+4. In the **Port forwarding** section, and forward the port which the application
+5. In a web explorer, type the forwarded port and now you should be able to see the application working
+6. You can Install it as a PWA for a better experience

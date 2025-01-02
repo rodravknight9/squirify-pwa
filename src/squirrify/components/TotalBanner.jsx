@@ -4,7 +4,6 @@ import { captions } from "../../common/captions";
 import { getByDate } from "../../indexeddb/database";
 
 export const TotalBanner = () => {
-  const [expenses, setExpenses] = useState(0);
   const [total2, setTotal] = useState(0);
 
   useEffect(() => {
@@ -12,7 +11,6 @@ export const TotalBanner = () => {
     const initialize = async () => {
       setTimeout(async () => {
         const exp = await getByDate("today");
-        setExpenses(exp);
 
         const tol = await calculateTotal(exp);
         setTotal(tol);
@@ -28,6 +26,7 @@ export const TotalBanner = () => {
       <div className="total-currency">
         <span>{"Bs."}</span>
         <span>{total2}</span>
+        {/* <span>Frenzhy estuvo aqui</span> */}
       </div>
     </div>
   );
