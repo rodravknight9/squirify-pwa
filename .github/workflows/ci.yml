@@ -31,10 +31,16 @@ jobs:
         run: |
           ls
           cd dist
+          echo 'dist folder'
           ls
           cd ..
           cat index.html
           cd public 
+          echo 'public folder'
+          ls
+          cd ..
+          cd assets
+          echo 'assets folder'
           ls
 
       - name: Deploy to Netlify
