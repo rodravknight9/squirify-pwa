@@ -27,8 +27,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: List the files
-        run: ls
+      - name: Debug in prod lol
+        run: |
+          ls
+          cd dist
+          ls
+          cd ..
+          cat index.html
+          cd public 
+          ls
 
       - name: Deploy to Netlify
         id: netlify_deploy
