@@ -58,6 +58,7 @@ export const EmojiPicker = ({ onCategoryChange, selectedCategory }) => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <PickCategory />
       </Modal>
