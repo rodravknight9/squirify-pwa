@@ -4,7 +4,7 @@
   "dir": "ltr",
   "lang": "en-US",
   "orientation": "any",
-  "start_url": "./../index.html",
+  "start_url": "./../",
   "background_color": "rgb(66, 129, 66)",
   "theme_color": "rgb(66, 129, 66)",
   "display": "standalone",
