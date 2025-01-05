@@ -11,11 +11,11 @@
   "description": "A highly scalable & plug-able, Progressive Web Application foundation with the best Developer Experience.",
   "icons": [
     {
-      "src": "./public/squirrel.png",
+      "src": "./squirrel.png",
       "sizes": "192x192"
     },
     {
-      "src": "./public/squirrel.png",
+      "src": "./squirrel.png",
       "sizes": "512x512"
     }
   ]
