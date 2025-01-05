@@ -1,6 +1,8 @@
 import { getCaption } from "../services";
 import { captions } from "../../common/captions";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../redux/slices";
 
 const options = [
   {
@@ -22,10 +24,12 @@ const options = [
 ];
 
 export const Filter = () => {
+  const dispatch = useDispatch();
   const [selectedFilter, setSetselectedFilter] = useState("today");
 
   const onClickOption = (option) => {
     setSetselectedFilter(option);
+    dispatch(setFilter(option));
   };
 
   return (

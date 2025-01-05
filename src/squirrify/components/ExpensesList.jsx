@@ -1,5 +1,6 @@
 import { defaultCategoriesArray } from "../../helpers/defaultCategories";
 import { Emoji } from "./Emoji";
+import PropTypes from "prop-types";
 
 export const ExpensesList = ({ expenses }) => {
   //TODO: better to use Redux
@@ -31,3 +32,14 @@ export const ExpensesList = ({ expenses }) => {
     </div>
   );
 };
+
+// ExpensesList.propTypes = {
+//   expenses: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       categoryUuid: PropTypes.string.isRequired,
+//       date: PropTypes.string,
+//       description: PropTypes.string,
+//       cost: PropTypes.number,
+//     })
+//   ),
+// };

@@ -103,7 +103,7 @@ export const getByDate = (option) => {
         );
         break;
 
-      case "thisYear":
+      case "year":
         startDate = formatDate(new Date(now.getFullYear(), 0, 1));
         endDate = formatDate(new Date(now.getFullYear() + 1, 0, 1));
         break;
