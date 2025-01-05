@@ -4,18 +4,18 @@
   "dir": "ltr",
   "lang": "en-US",
   "orientation": "any",
-  "start_url": ".",
+  "start_url": "./../index.html",
   "background_color": "rgb(66, 129, 66)",
   "theme_color": "rgb(66, 129, 66)",
   "display": "standalone",
   "description": "A highly scalable & plug-able, Progressive Web Application foundation with the best Developer Experience.",
   "icons": [
     {
-      "src": "./squirrel.png",
+      "src": "./../squirrel.png",
       "sizes": "192x192"
     },
     {
-      "src": "./squirrel.png",
+      "src": "./../squirrel.png",
       "sizes": "512x512"
     }
   ]
