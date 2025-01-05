@@ -30,17 +30,13 @@ jobs:
       - name: Debug in prod lol
         run: |
           ls
+          cat index.html
           cd dist
           echo 'dist folder'
           ls
-          cd ..
           cat index.html
-          cd public 
-          echo 'public folder'
-          ls
-          cd ..
           cd assets
-          echo 'assets folder'
+          echo 'dist/assets folder'
           ls
 
       - name: Deploy to Netlify
