@@ -1,35 +1,39 @@
 .nav-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    .content {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        padding: 4px 0;
-        h2 {
-            font-size: 1.3rem;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: rgb(51, 51, 51);
-        }
-    }    
+  .content {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 4px 0;
+    h2 {
+      font-size: 1.3rem;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: $tone;
+    }
+    .nav-opt {
+      display: flex;
+      padding: 0.3rem 0;
+    }
+  }
 }
 
-.back{
-    background-color: white;
-    .content-back{
-        height: 100%;
-        width: 90%;
-        padding: 7px 0;
-        display: flex;
-        color: $tone;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        h2 {
-            color: $tone;
-        }
+.back {
+  background-color: white;
+  .content-back {
+    height: 100%;
+    width: 90%;
+    padding: 7px 0;
+    display: flex;
+    color: $tone;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    h2 {
+      color: $tone;
     }
+  }
 }

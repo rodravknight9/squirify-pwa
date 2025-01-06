@@ -1,0 +1,11 @@
+.language-modal {
+  .language-option {
+    padding: 0.6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+      color: $tone;
+    }
+  }
+}

@@ -15,7 +15,11 @@ export const Header = () => {
             size={25}
             onClick={() => navigate("add-category")}
           />
-          <CiSettings className="icon" size={25} />
+          <CiSettings
+            className="icon"
+            size={25}
+            onClick={() => navigate("/settings")}
+          />
         </div>
       </div>
     </div>

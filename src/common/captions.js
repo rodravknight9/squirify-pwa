@@ -35,4 +35,28 @@ export const captions = {
     ru: "_",
     it: "altro",
   },
+  english: {
+    en: "english",
+    es: "inglés",
+    ru: "англиский",
+    it: "inglese",
+  },
+  spanish: {
+    en: "spanish",
+    es: "español",
+    ru: "испанский",
+    it: "spagnolo",
+  },
+  italian: {
+    en: "italian",
+    es: "italiano",
+    ru: "италянский",
+    it: "italiano",
+  },
+  russian: {
+    en: "russian",
+    es: "ruso",
+    ru: "руский",
+    it: "russo",
+  },
 };
