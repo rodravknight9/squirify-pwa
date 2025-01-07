@@ -4,6 +4,7 @@ import { useClickAway } from "react-use";
 import { menuOptions } from "../../helpers";
 import { AnimatePresence, motion } from "framer-motion";
 
+// DEPRECATED: not actually using it
 export const NavMobile = () => {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
@@ -12,12 +13,7 @@ export const NavMobile = () => {
 
   return (
     <div ref={ref} className="lg:hidden">
-      <Hamburger 
-        toggled={isOpen} 
-        size={20} 
-        toggle={setOpen} 
-        color="black"
-      />
+      <Hamburger toggled={isOpen} size={20} toggle={setOpen} color="black" />
       <AnimatePresence>
         {isOpen && (
           <motion.div
