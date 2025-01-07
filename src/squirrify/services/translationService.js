@@ -1,10 +1,8 @@
-export const getCaption = (caption, isTitle = true) => {
-  //TODO: user needs a table for the language settings
-  const userLanguage = "es";
+export const getCaption = (caption, language = "en", isTitle = true) => {
   if (isTitle) {
-    return capitalizeFirstLetter(caption[userLanguage]);
+    return capitalizeFirstLetter(caption[language]);
   }
-  return caption[userLanguage];
+  return caption[language];
 };
 
 function capitalizeFirstLetter(val) {

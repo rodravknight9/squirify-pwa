@@ -1,6 +1,9 @@
 name: Deploy website
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 env:
   BRANCH_NAME: ${{ github.ref_name }}
@@ -26,18 +29,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-
-      - name: Debug in prod lol
-        run: |
-          ls
-          cat index.html
-          cd dist
-          echo 'dist folder'
-          ls
-          cat index.html
-          cd assets
-          echo 'dist/assets folder'
-          ls
 
       - name: Deploy to Netlify
         id: netlify_deploy
