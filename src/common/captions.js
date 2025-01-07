@@ -21,7 +21,7 @@ export const captions = {
     en: "total",
     es: "total",
     ru: "всего",
-    it: "total",
+    it: "totale",
   },
   more: {
     en: "more",
@@ -58,5 +58,17 @@ export const captions = {
     es: "ruso",
     ru: "руский",
     it: "russo",
+  },
+  description: {
+    en: "Description",
+    es: "Descripción",
+    ru: "Описание",
+    it: "Descrizione",
+  },
+  language: {
+    en: "Language",
+    es: "Lenguaje",
+    ru: "Язык",
+    it: "Lingua",
   },
 };

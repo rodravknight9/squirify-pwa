@@ -3,11 +3,15 @@ import { BackHeader } from "../components";
 import { OptionSettings, SelectLanguageModal } from "../components/settings";
 import Modal from "react-modal";
 import { modalStyles } from "../../helpers";
+import { getCaption } from "../services";
+import { captions, titles } from "../../common";
+import { useLanguage } from "../../hooks";
 
 export const Settings = () => {
+  const lang = useLanguage();
+
   const [languageModalIsOpen, setLanguageModalIsOpen] = useState(false);
   const openLanguageModal = () => {
-    console.log("hey");
     setLanguageModalIsOpen(true);
   };
   const closeLanguageModal = () => {
@@ -16,11 +20,11 @@ export const Settings = () => {
 
   return (
     <div className="container">
-      <BackHeader title={"settings"} />
+      <BackHeader title={getCaption(titles.Settings, lang)} />
       <div className="options-settings">
         <div className="option-settings" onClick={() => openLanguageModal()}>
           <OptionSettings
-            title={"Language"}
+            title={getCaption(captions.language, lang)}
             // onClickOption={() => {}}
           />
         </div>
@@ -33,7 +37,7 @@ export const Settings = () => {
         style={modalStyles}
         ariaHideApp={false}
       >
-        <SelectLanguageModal />
+        <SelectLanguageModal onCloseModal={closeLanguageModal} />
       </Modal>
     </div>
   );

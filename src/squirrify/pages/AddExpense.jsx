@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../../hooks";
+import { useForm, useLanguage } from "../../hooks";
 import { getTodayDate } from "../../helpers";
 import { addExpense } from "../../indexeddb/database";
 import { BackHeader, EmojiPicker, Title } from "../components";
-import { titles } from "../../common";
+import { captions, titles } from "../../common";
 import { getCaption } from "../services";
 import { useState } from "react";
 
 export const AddExpense = () => {
+  const lang = useLanguage();
   const navigate = useNavigate();
   const [category, setCategory] = useState("");
 
@@ -34,10 +35,10 @@ export const AddExpense = () => {
 
   return (
     <div className="container">
-      <BackHeader title={getCaption(titles.editExpense)} />
+      <BackHeader title={getCaption(titles.editExpense, lang)} />
       <div className="edit-expense">
         <div className="box form-container">
-          <Title title={"Add Expenses"} />
+          <Title title={getCaption(titles.editExpense, lang)} />
           <form>
             <div className="input-box">
               <input
@@ -47,7 +48,7 @@ export const AddExpense = () => {
                 id="cost"
                 value={cost}
                 onChange={handleInputChange}
-                placeholder="total"
+                placeholder={getCaption(captions.total, lang)}
               />
             </div>
             {/* <p style={{ color: "black" }}>{category}</p> */}
@@ -73,7 +74,7 @@ export const AddExpense = () => {
                 id="description"
                 value={description}
                 onChange={handleInputChange}
-                placeholder="description"
+                placeholder={getCaption(captions.description, lang)}
               />
             </div>
             <div className="form-btns">
